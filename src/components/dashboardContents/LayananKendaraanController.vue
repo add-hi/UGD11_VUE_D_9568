@@ -30,7 +30,7 @@
                             <td>{{ item.price}}</td> 
                             <td>{{ item.type }}</td>
                             <td>{{ item.created_at}}</td> 
-                            <td class="text-center"> 
+                            <!-- <td class="text-center"> 
                                 <v-btn icon color="indigo" light @click="editHandler(item)" > 
                                     <v-icon>mdi-pencil</v-icon> 
                                 </v-btn>
@@ -38,7 +38,7 @@
                                 <v-btn icon color="error" light @click="deleteData(item.id)" > 
                                     <v-icon>mdi-delete</v-icon> 
                                 </v-btn> 
-                            </td> 
+                            </td>  -->
                         </tr> 
                     </tbody> 
             </template> 
@@ -93,11 +93,11 @@
         return { 
             dialog: false, keyword: '', headers: [ 
                 { text: 'No', value: 'no', }, 
-                { text: 'Name', value: 'name' }, 
-                { text: 'Price', value: 'price' }, 
-                { text: 'Type', value: 'type' }, 
-                { text: 'Created_at', value: 'created_at' },
-                { text: 'Aksi', value: null }, 
+                { text: 'Nama', value: 'name' }, 
+                { text: 'Harga', value: 'price' }, 
+                { text: 'Tingkat', value: 'type' }, 
+                { text: 'Tanggal', value: 'created_at' },
+                // { text: 'Aksi', value: null }, 
                 
                 ], 
                 drinkList: ['Ringan', 'Sedang','Berat'],

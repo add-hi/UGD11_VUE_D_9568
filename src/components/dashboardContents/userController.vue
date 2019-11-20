@@ -79,7 +79,7 @@
             v-model="snackbar"
             :color="color" :multi-line="true" :timeout="3000" > {{ text }} 
         <v-btn dark text @click="snackbar = false" > Close </v-btn> 
-        </v-snackbar> ,
+        </v-snackbar> 
     </v-container> 
 </template> 
 
@@ -110,8 +110,13 @@
             methods:{ 
                 getData()
                 { 
+                    var config = {
+                        headers: {
+                            Authorization: 'Bearer ' + localStorage.getItem('token')
+                        }
+                    }
                     var uri = this.$apiUrl + '/user' 
-                    this.$http.get(uri).then(response =>{ 
+                    this.$http.get(uri,config).then(response =>{ 
                         this.users=response.data.message
                          }) 
                 }, 

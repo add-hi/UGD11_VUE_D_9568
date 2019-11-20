@@ -29,7 +29,7 @@
                     </v-list> 
                 <template v-slot:append> 
                     <div class="pa-2">
-                    <v-btn block>Logout</v-btn> 
+                    <v-btn @click="logout()" block>Logout</v-btn> 
                     </div> 
                 </template> 
                 </v-navigation-drawer> 
@@ -41,7 +41,7 @@
                      
                      <img src="../assets/logo.svg" style="height:45px;width:45px"> 
                      <v-toolbar-title style="font-size: 21px;" 
-                     class="white--text ml-2" > PAW-UAJY </v-toolbar-title>
+                     class="white--text ml-2" > Admin </v-toolbar-title>
                 </v-app-bar> 
 
                      <VContent > 
@@ -55,11 +55,18 @@
         return { 
             drawer: null, items: [ 
                 { 
-                    title: 'User Controller', icon: 'mdi-human-male' , to: "/" },
+                    title: 'User Controller', icon: 'mdi-human-male' , to: "/user" },
                     {
-                    title: 'Layanan Kendaraan', icon: 'mdi-nintendo-switch', to: "/layanankendaraan" },
+                    title: 'Layanan Kendaraan', icon: 'mdi-engine', to: "/layanankendaraan" },
                 ], 
             } 
         }, 
+        methods: {
+            logout()
+            {
+                localStorage.removeItem("token")
+                this.$router.push({name : "loginLayout"})
+            }
+        }
     } 
 </script>

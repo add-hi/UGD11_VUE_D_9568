@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router' 
  
 const DashboardLayout = () => import(/* webpackChunkName: "dashboard" */ '../components/dashboardLayout.vue') 
+const loginLayout = () => import(/* webpackChunkName: "dashboard" */ '../components/loginLayout.vue') 
  
 function loadView(view) {  
     return () => import(/* webpackChunkName: "view[request]" */ 
@@ -10,12 +11,12 @@ function loadView(view) {
  
 const routes = [     
     {       
-        path: '/',       
+        path: '/dashboard',       
         component: DashboardLayout,       
         children: [         
             {           
                 name: 'UserController',           
-                path: '',           
+                path: '/user',           
                 component: loadView('userController')         
             },
             {           
@@ -24,7 +25,12 @@ const routes = [
                 component: loadView('LayananKendaraanController')         
             }       
         ]     
-    },   
+    }, 
+    {
+        path: '/',
+        component: loginLayout,
+        name: 'loginLayout'
+    }  
 ]   
 
 Vue.use(Router) 
